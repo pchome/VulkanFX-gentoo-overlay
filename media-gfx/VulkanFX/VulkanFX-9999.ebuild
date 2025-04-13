@@ -24,6 +24,9 @@ fi
 LICENSE="ZLIB"
 SLOT="0"
 
+IUSE="+xlib"
+REQUIRED_USE="xlib" # there is no option yet to disable this
+
 RESTRICT="test"
 
 RDEPEND="!<media-libs/vulkan-loader-1.1:=[${MULTILIB_USEDEP},layers]
@@ -36,7 +39,8 @@ BDEPEND="!<dev-util/vulkan-headers-1.1
 	media-libs/vkroots
 	>=dev-build/meson-0.50"
 
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	xlib? ( x11-libs/libX11[${MULTILIB_USEDEP}] )"
 
 multilib_src_configure() {
 	local emesonargs=(
