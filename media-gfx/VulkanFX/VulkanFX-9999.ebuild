@@ -33,6 +33,7 @@ RDEPEND="!<media-libs/vulkan-loader-1.1:=[${MULTILIB_USEDEP},layers]
 BDEPEND="!<dev-util/vulkan-headers-1.1
 	dev-util/glslang
 	dev-libs/stb
+	media-libs/vkroots
 	>=dev-build/meson-0.50"
 
 DEPEND="${RDEPEND}"
