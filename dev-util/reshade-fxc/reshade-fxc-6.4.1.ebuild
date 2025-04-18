@@ -23,7 +23,7 @@ S="${WORKDIR}/reshade-${PV}"
 # TMP Hack for vkBasalt config helper
 PATCHES=(
 	"${FILESDIR}/reshade-fxc.cpp-${PV}.patch"
-	"${FILESDIR}/reshade-fx2conf-${PV}.cpp.patch"
+	"${FILESDIR}/reshade-fx2conf.cpp-${PV}.patch"
 )
 
 src_configure() {
