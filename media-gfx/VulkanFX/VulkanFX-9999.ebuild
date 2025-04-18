@@ -31,7 +31,7 @@ RESTRICT="test"
 
 RDEPEND="!<media-libs/vulkan-loader-1.1:=[${MULTILIB_USEDEP},layers]
 	!media-gfx/vkBasalt
-	>=dev-util/reshade-fx-6.4.1"
+	>=dev-util/reshade-fx-6.4.1[${MULTILIB_USEDEP},spirv]"
 
 BDEPEND="!<dev-util/vulkan-headers-1.1
 	dev-util/glslang
