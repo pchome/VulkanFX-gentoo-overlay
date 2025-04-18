@@ -11,7 +11,7 @@ SRC_URI="https://github.com/crosire/reshade/archive/v${PV}.tar.gz -> reshade-${P
 
 LICENSE="BSD"
 SLOT="0"
-IUSE="glsl hlsl +spirv"
+IUSE="+glsl +hlsl +spirv"
 REQUIRED_USE="|| ( glsl hlsl spirv )"
 KEYWORDS="~amd64 ~x86"
 RESTRICT="test"
