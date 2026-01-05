@@ -1,0 +1,43 @@
+diff --git a/source/vulkan/vulkan_impl_type_convert.cpp b/source/vulkan/vulkan_impl_type_convert.cpp
+index 3053baa9..98f98896 100644
+--- a/source/vulkan/vulkan_impl_type_convert.cpp
++++ b/source/vulkan/vulkan_impl_type_convert.cpp
+@@ -3,7 +3,7 @@
+  * SPDX-License-Identifier: BSD-3-Clause
+  */
+ 
+-#include "vulkan_hooks.hpp"
++#include <cassert>
+ #include "vulkan_impl_type_convert.hpp"
+ #include <algorithm> // std::copy_n, std::fill_n, std::find_if
+ 
+diff --git a/source/vulkan/vulkan_impl_type_convert.hpp b/source/vulkan/vulkan_impl_type_convert.hpp
+index 0070973e..fd5f3701 100644
+--- a/source/vulkan/vulkan_impl_type_convert.hpp
++++ b/source/vulkan/vulkan_impl_type_convert.hpp
+@@ -5,7 +5,8 @@
+ 
+ #pragma once
+ 
+-#include <glad/vulkan.h>
++#define VK_NO_PROTOTYPES
++#include <vulkan/vulkan.h>
+ #include "reshade_api_pipeline.hpp"
+ #include <vector>
+ #include <unordered_map>
+@@ -16,6 +17,15 @@ using VmaAllocation = void *;
+ using VmaPool = void *;
+ #endif
+ 
++template <typename T>
++inline const T *find_in_structure_chain(const void *structure_chain, VkStructureType type)
++{
++	const T *next = reinterpret_cast<const T *>(structure_chain);
++	while (next != nullptr && next->sType != type)
++		next = reinterpret_cast<const T *>(next->pNext);
++	return next;
++}
++
+ namespace reshade::vulkan
+ {
+ 	static_assert(sizeof(VkBuffer) == sizeof(api::resource));
