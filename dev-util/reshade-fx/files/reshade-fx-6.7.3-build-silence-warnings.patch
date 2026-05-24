@@ -1,0 +1,26 @@
+From bee8bf301b3503dc45ab85510dafbe8854e542e6 Mon Sep 17 00:00:00 2001
+From: pchome <pchome@users.noreply.github.com>
+Date: Sun, 24 May 2026 07:08:10 +0300
+Subject: [PATCH] build: silence warnings
+
+Apparently those warnings are ok according to upstream build system.
+---
+ meson.build | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/meson.build b/meson.build
+index a044fdc..d0031d6 100644
+--- a/meson.build
++++ b/meson.build
+@@ -3,6 +3,8 @@ project('reshade-fx', ['cpp'], default_options : ['cpp_std=c++17'], version : '6
+ add_project_arguments([
+   '-fPIC',
+   '-fno-rtti',
++  '-Wno-switch',
++  '-Wno-changes-meaning',
+ ], language: 'cpp')
+ 
+ sources = [
+-- 
+2.53.0
+
