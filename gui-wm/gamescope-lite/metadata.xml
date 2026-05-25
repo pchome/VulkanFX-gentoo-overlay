@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<upstream>
+		<remote-id type="github">pchome/gamescope-lite</remote-id>
+	</upstream>
+	<use>
+		<flag name="libei">Enable emulated input using <pkg>dev-libs/libei</pkg></flag>
+		<flag name="pipewire">Enable screen capture via PipeWire</flag>
+		<flag name="headless">Enable headless backend support</flag>
+		<flag name="reshade">Enable ReShade FX shaders support (see https://github.com/crosire/reshade-shaders)</flag>
+		<flag name="screenshot">Enable saving screenshots</flag>
+	</use>
+</pkgmetadata>
