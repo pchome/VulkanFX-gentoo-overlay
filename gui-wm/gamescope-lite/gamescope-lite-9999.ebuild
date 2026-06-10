@@ -16,7 +16,7 @@ if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/pchome/${PN}.git"
 	inherit git-r3
 else
-	WLROOTS_COMMIT="e99c2e5c427f5543cf6ddcbc22f7eecd658edaed"
+	WLROOTS_COMMIT="410ff350e49bce8debfb88be6eb138501617681e"
 	SRC_URI="
 		https://github.com/pchome/${PN}/archive/refs/tags/${MY_PV}.tar.gz -> ${P}.tar.gz
 		https://github.com/pchome/wlroots/archive/${WLROOTS_COMMIT}.tar.gz -> wlroots-${WLROOTS_COMMIT}.tar.gz
@@ -27,7 +27,7 @@ fi
 S="${WORKDIR}/${PN}-${MY_PV}"
 LICENSE="BSD-2"
 SLOT="0"
-IUSE="avif gui headless pipewire reshade screenshot"
+IUSE="avif convar gui headless pipewire reshade screenshot steam"
 
 RDEPEND="
 	>=dev-libs/wayland-1.23.1
@@ -107,6 +107,8 @@ src_configure() {
 		$(meson_feature screenshot)
 		$(meson_feature headless)
 		$(meson_feature reshade)
+		$(meson_feature steam)
+		$(meson_feature convar)
 
 		-Dwlroots:xcb-errors=disabled
 		-Dwlroots:examples=false
